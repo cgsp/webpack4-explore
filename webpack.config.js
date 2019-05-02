@@ -3,17 +3,19 @@
  * @Author: John.Guan
  * @Date: 2019-05-02 23:14:34
  * @Last Modified by: John.Guan
- * @Last Modified time: 2019-05-02 23:34:59
+ * @Last Modified time: 2019-05-02 23:37:52
  */
+
 // node的内置模块，不需要npm安装
 const path = require('path')
+
 /** 
  * commonjs规范
  * 默认必须是webpack.config.js这个文件
  * 如果想变更，不用webpack.config.js这个文件名，需要运行npx webpack --config xxx.js
  */
 module.exports = {
-  entry: './index.js', // 入口
+  entry: './src/index.js', // 入口
   output: {
     // 打包出来的文件叫什么
     filename: 'bundle.js',
