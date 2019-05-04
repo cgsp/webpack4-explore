@@ -3,7 +3,7 @@
  * @Author: John.Guan
  * @Date: 2019-05-02 23:14:34
  * @Last Modified by: John.Guan
- * @Last Modified time: 2019-05-02 23:37:52
+ * @Last Modified time: 2019-05-04 22:08:34
  */
 
 // node的内置模块，不需要npm安装
@@ -15,7 +15,14 @@ const path = require('path')
  * 如果想变更，不用webpack.config.js这个文件名，需要运行npx webpack --config xxx.js
  */
 module.exports = {
-  entry: './src/index.js', // 入口
+  // mode: 'production', // 默认production，代码被压缩
+  mode: 'development', // 设置development，代码不会被压缩
+  // 入口--完整的写法
+  // entry: {
+  //   main: './src/index.js'
+  // },
+  // 入口--简写
+  entry: './src/index.js',
   output: {
     // 打包出来的文件叫什么
     filename: 'bundle.js',
