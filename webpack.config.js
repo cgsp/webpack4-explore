@@ -3,7 +3,7 @@
  * @Author: John.Guan
  * @Date: 2019-05-02 23:14:34
  * @Last Modified by: John.Guan
- * @Last Modified time: 2019-05-04 22:08:34
+ * @Last Modified time: 2019-05-08 22:28:13
  */
 
 // node的内置模块，不需要npm安装
@@ -23,6 +23,23 @@ module.exports = {
   // },
   // 入口--简写
   entry: './src/index.js',
+  module: {
+    rules: [
+      {
+        test: /\.jpg$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            // 站位符语法
+            name: '[name]-[hash:6].[ext]',
+            outputPath: 'assets/images',
+            limit: 512,
+          },
+
+        }
+      }
+    ]
+  },
   output: {
     // 打包出来的文件叫什么
     filename: 'bundle.js',
