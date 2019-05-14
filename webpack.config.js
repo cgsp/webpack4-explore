@@ -3,7 +3,7 @@
  * @Author: John.Guan
  * @Date: 2019-05-02 23:14:34
  * @Last Modified by: John.Guan
- * @Last Modified time: 2019-05-08 22:28:13
+ * @Last Modified time: 2019-05-14 16:00:31
  */
 
 // node的内置模块，不需要npm安装
@@ -26,7 +26,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jpg$/,
+        test: /\.(jpg|png|gif)$/,
         use: {
           loader: 'url-loader',
           options: {
@@ -37,6 +37,15 @@ module.exports = {
           },
 
         }
+      },
+      // css-loader会分析好css文件之间，彼此的依赖关系，最终，合并为一个css
+      // style-loader会在html文件的header部分，生成一个style标签，来挂载css-loader生成的css
+      // 如果是处理scss文件，那么必须安装sass-loader 和 node-sass（node-sass不需要写在下面的数组里面）--这2个loader,是将scss翻译为css
+      // postcss-loader先处理，例如增加autoprefix, postcss-loader需要一个配置文件-postcss.config.js
+      // loader的执行顺序，是从右边到左边
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
       }
     ]
   },
