@@ -3,11 +3,15 @@
  * @Author: John.Guan
  * @Date: 2019-05-02 23:14:34
  * @Last Modified by: John.Guan
- * @Last Modified time: 2019-05-14 16:00:31
+ * @Last Modified time: 2019-05-23 22:51:02
  */
 
 // node的内置模块，不需要npm安装
 const path = require('path')
+// 会在打包结束之后，自动生成一个html文件，并把打包生成的js插入到这个html的script里面
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+// 清空dist目录
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 /** 
  * commonjs规范
@@ -23,6 +27,14 @@ module.exports = {
   // },
   // 入口--简写
   entry: './src/index.js',
+  output: {
+    // 打包出来的文件叫什么
+    filename: 'dist.js',
+    // 打包出来的文件，放在什么地方；
+    // path这个模块，有个resolve方法，这个方法，第一个参数__dirname，意思是说，与webpack.config.js所在的目录同级的地方；
+    // path.resolve(__dirname, 'dist')意思是说，在webpack.config.js的同级目录创建一个dist文件，用来放置打包好的bundle.js
+    path: path.resolve(__dirname, 'dist'),
+  },
   module: {
     rules: [
       {
@@ -38,6 +50,12 @@ module.exports = {
 
         }
       },
+      {
+        test: /\.(eot|ttf|svg)$/,
+        use: {
+          loader: 'file-loader'
+        }
+      },
       // css-loader会分析好css文件之间，彼此的依赖关系，最终，合并为一个css
       // style-loader会在html文件的header部分，生成一个style标签，来挂载css-loader生成的css
       // 如果是处理scss文件，那么必须安装sass-loader 和 node-sass（node-sass不需要写在下面的数组里面）--这2个loader,是将scss翻译为css
@@ -45,16 +63,32 @@ module.exports = {
       // loader的执行顺序，是从右边到左边
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              // 如果不加这个importLoaders配置的话，如果入口是index.scss，那么index.scss中，如果出现@import 'a.scss' 那么这个a.scss就不会被sass-loader和postcss-loader处理
+              // 设置2的话，就表示，所有的嵌套引入资源，都会经过这些loader处理
+              // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
+              importLoaders: 2,
+              modules: true,
+              localIdentName: '[path][name]__[local]--[hash:base64:8]',
+            }
+          },
+          'sass-loader',
+          'postcss-loader'
+        ]
       }
     ]
   },
-  output: {
-    // 打包出来的文件叫什么
-    filename: 'bundle.js',
-    // 打包出来的文件，放在什么地方；
-    // path这个模块，有个resolve方法，这个方法，第一个参数__dirname，意思是说，与webpack.config.js所在的目录同级的地方；
-    // path.resolve(__dirname, 'build')意思是说，在webpack.config.js的同级目录创建一个build文件，用来放置打包好的bundle.js
-    path: path.resolve(__dirname, 'build'),
-  }
+  plugins: [
+    // 如果只是写这个HtmlWebpackPlugin，而不设置参数的话，生成的html会没有div#root这个节点
+    new HtmlWebpackPlugin({
+      // 创建一个模板
+      template: 'src/index.html'
+    }),
+    // 清空dist目录
+    new CleanWebpackPlugin(['dist'])
+  ]
 }
