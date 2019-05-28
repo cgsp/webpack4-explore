@@ -93,7 +93,11 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("var root = document.getElementById('root')\n\nroot.innerHTML = '<div>哈哈哈哈</div>'\n\n//# sourceURL=webpack:///./src/header.js?");
+var root = document.getElementById('root')
+
+consose.log('哈哈哈哈')
+
+root.innerHTML = '<div>哈哈哈哈</div>'
 
 /***/ }),
 
@@ -105,8 +109,16 @@ eval("var root = document.getElementById('root')\n\nroot.innerHTML = '<div>哈�
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header */ \"./src/header.js\");\n/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_header__WEBPACK_IMPORTED_MODULE_0__);\n\n\n_header__WEBPACK_IMPORTED_MODULE_0___default()()\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header */ "./src/header.js");
+/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_header__WEBPACK_IMPORTED_MODULE_0__);
+
+
+_header__WEBPACK_IMPORTED_MODULE_0___default()()
+
+
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=sub1.js.map
