@@ -3,7 +3,7 @@
  * @Author: John.Guan
  * @Date: 2019-05-02 23:14:34
  * @Last Modified by: John.Guan
- * @Last Modified time: 2019-05-28 23:05:43
+ * @Last Modified time: 2019-05-30 10:44:38
  */
 
 // node的内置模块，不需要npm安装
@@ -27,10 +27,22 @@ module.exports = {
     main1: './src/index.js',
     sub1: './src/index.js',
   },
+  devServer: {
+    // 基于哪个目录进行打包
+    contentBase: './dist',
+    // 启动后，自动打开浏览器
+    open: true,
+    // 开启的端口号
+    port: 8888,
+    // proxy，各脚手架的反向代理，本质就是devServer里面的反向代理
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
+  },
   // 入口--简写
   // entry: './src/index.js',
   output: {
-    publicPath: '',
+    publicPath: '/',
     // 打包出来的文件叫什么
     // filename: 'dist.js',
     filename: '[name].js',
