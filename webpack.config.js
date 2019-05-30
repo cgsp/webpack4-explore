@@ -3,7 +3,7 @@
  * @Author: John.Guan
  * @Date: 2019-05-02 23:14:34
  * @Last Modified by: John.Guan
- * @Last Modified time: 2019-05-30 10:44:38
+ * @Last Modified time: 2019-05-30 16:59:35
  */
 
 // node的内置模块，不需要npm安装
@@ -12,6 +12,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // 清空dist目录
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const webpack = require('webpack')
 
 /** 
  * commonjs规范
@@ -36,7 +37,20 @@ module.exports = {
     port: 8888,
     // proxy，各脚手架的反向代理，本质就是devServer里面的反向代理
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/api': {
+        target: 'http://localhost:3000',
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
+    hot: true,
+    // 即使HMR不生效，也不让页面，自动刷新
+    hotOnly: true,
+    host: '0.0.0.0',
+    overlay: {
+      warnings: true,
+      errors: true
     }
   },
   // 入口--简写
@@ -95,6 +109,12 @@ module.exports = {
           'sass-loader',
           'postcss-loader'
         ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        // 这个模块只是桥梁，连接babel与webpack的
+        loader: 'babel-loader',
       }
     ]
   },
@@ -105,6 +125,8 @@ module.exports = {
       template: 'src/index.html'
     }),
     // 清空dist目录
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    // HMR
+    // new webpack.HotModuleReplacementPlugin()
   ],
 }

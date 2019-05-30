@@ -4,6 +4,7 @@
   "description": "探索webpack4",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server",
     "middleware": "node server.js"
@@ -20,7 +21,11 @@
   },
   "homepage": "https://github.com/cgsp/webpack4-explore#readme",
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
     "autoprefixer": "^9.5.1",
+    "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^2.0.2",
     "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
@@ -39,5 +44,10 @@
     "webpack-cli": "^3.3.1",
     "webpack-dev-middleware": "^3.7.0",
     "webpack-dev-server": "^3.4.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@babel/runtime": "^7.4.5",
+    "@babel/runtime-corejs2": "^7.4.5"
   }
 }

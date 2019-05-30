@@ -1,5 +1,15 @@
 var root = document.getElementById('root')
 
-console.log('哈哈哈哈1111')
+const arr = [
+  new Promise((resolve, reject) => {
 
-root.innerHTML = '<div>哈哈哈哈444555</div>'
+  }),
+  new Promise((resolve, reject) => {
+
+  })
+]
+
+arr.map(item => {
+  console.log(item)
+  console.log(11)
+})
