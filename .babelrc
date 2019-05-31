@@ -1,5 +1,6 @@
 {
   "presets": [
+    // 这个数组的前后顺序没影响，但是
     [
       "@babel/preset-env",
       {
@@ -8,6 +9,7 @@
           "chrome": "67"
         }
       }
-    ]
+    ],
+    ["@babel/preset-react"]
   ]
 }
