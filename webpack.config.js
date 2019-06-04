@@ -3,7 +3,7 @@
  * @Author: John.Guan
  * @Date: 2019-05-02 23:14:34
  * @Last Modified by: John.Guan
- * @Last Modified time: 2019-06-04 23:23:52
+ * @Last Modified time: 2019-06-04 23:26:48
  */
 
 // node的内置模块，不需要npm安装
@@ -20,9 +20,10 @@ const webpack = require('webpack')
  * 如果想变更，不用webpack.config.js这个文件名，需要运行npx webpack --config xxx.js
  */
 module.exports = {
-  mode: 'production', // 默认production，代码被压缩
-  // mode: 'development', // 设置development，代码不会被压缩
-  devtool: 'source-map',
+  // mode: 'production', // 默认production，代码被压缩
+  mode: 'development', // 设置development，代码不会被压缩
+  devtool: 'cheap-module-eval-source-map', // 测试环境
+  // devtool: 'none', // 生产环境
   // 入口--完整的写法
   entry: {
     main1: './src/index.js',
