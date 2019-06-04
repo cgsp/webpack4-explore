@@ -1,6 +1,9 @@
 {
   "name": "webpack4-explore",
   "version": "1.0.0",
+  "sideEffects": [
+    "*.css"
+  ],
   "description": "探索webpack4",
   "main": "index.js",
   "scripts": {

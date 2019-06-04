@@ -3,7 +3,7 @@
  * @Author: John.Guan
  * @Date: 2019-05-02 23:14:34
  * @Last Modified by: John.Guan
- * @Last Modified time: 2019-05-30 16:59:35
+ * @Last Modified time: 2019-06-04 23:23:52
  */
 
 // node的内置模块，不需要npm安装
@@ -20,8 +20,8 @@ const webpack = require('webpack')
  * 如果想变更，不用webpack.config.js这个文件名，需要运行npx webpack --config xxx.js
  */
 module.exports = {
-  // mode: 'production', // 默认production，代码被压缩
-  mode: 'development', // 设置development，代码不会被压缩
+  mode: 'production', // 默认production，代码被压缩
+  // mode: 'development', // 设置development，代码不会被压缩
   devtool: 'source-map',
   // 入口--完整的写法
   entry: {
@@ -129,4 +129,7 @@ module.exports = {
     // HMR
     // new webpack.HotModuleReplacementPlugin()
   ],
+  optimization: {
+    usedExports: true
+  }
 }
