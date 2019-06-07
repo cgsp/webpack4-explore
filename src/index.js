@@ -10,7 +10,7 @@ export default class App extends Component {
   render() {
     add()
     return (
-      <div>我是一个react</div>
+      <div>我是一个react9992</div>
     )
   }
 }
