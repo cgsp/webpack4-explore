@@ -10,6 +10,7 @@
     "watch": "webpack --watch",
     "middleware": "node server.js",
     "dev": "webpack-dev-server --config ./build/webpack.dev.js",
+    "dev-build": "webpack --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js"
   },
   "repository": {
@@ -29,6 +30,7 @@
     "@babel/preset-env": "^7.4.5",
     "autoprefixer": "^9.5.1",
     "babel-loader": "^8.0.6",
+    "babel-plugin-dynamic-import-webpack": "^1.1.0",
     "clean-webpack-plugin": "^2.0.2",
     "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
@@ -54,6 +56,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.4.5",
     "@babel/runtime-corejs2": "^7.4.5",
+    "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

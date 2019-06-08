@@ -10,6 +10,11 @@
         }
       }
     ],
-    ["@babel/preset-react"]
+    [
+      "@babel/preset-react"
+    ]
+  ],
+  "plugins": [
+    "dynamic-import-webpack"
   ]
 }
