@@ -4,6 +4,8 @@ import React, { Component } from 'react'
 import ReactDom from 'react-dom'
 import _ from 'lodash'
 import './index.scss'
+import { test } from './test'
+console.log(test.a)
 
 // const getComponent = () => {
 //   // 获取lodash，然后赋值给_这个变量
