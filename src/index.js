@@ -26,6 +26,15 @@ document.addEventListener('click', () => {
 })
 
 
+// document.addEventListener('click', () => {
+//   // 魔法注释
+//   import(/* webpackPrefetch: true */ './click.js')
+//     .then(({ default: func }) => {
+//       func()
+//     })
+// })
+
+
 export default class App extends Component {
   render() {
     return (
