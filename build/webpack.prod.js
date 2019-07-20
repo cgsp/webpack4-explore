@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const merge = require('webpack-merge')
 const commonConfig = require('./webpack.common')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 const prodConfig = {
   mode: 'production',
@@ -31,6 +32,10 @@ const prodConfig = {
     new MiniCssExtractPlugin({
       filename: '[name].[hash:8].css',
       chunkFilename: '[name].chunk.[hash:8].css'
+    }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
     })
   ],
   output: {
