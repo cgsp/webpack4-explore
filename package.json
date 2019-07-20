@@ -12,8 +12,8 @@
     "url": "git+https://github.com/cgsp/webpack4-explore.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "gsp",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cgsp/webpack4-explore/issues"
   },
