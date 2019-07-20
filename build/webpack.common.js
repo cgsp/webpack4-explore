@@ -1,6 +1,6 @@
 const path = require('path')
-const htmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -13,7 +13,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'bable-loader'
+            loader: 'babel-loader'
           }
         ]
       },
@@ -37,16 +37,14 @@ module.exports = {
     ]
   },
   plugins: [
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
-    new CleanWebpackPlugin(['dist'], {
-      root: path.resolve(__dirname, '../')
-    })
+    new CleanWebpackPlugin()
   ],
   optimization: {
     runtimeChunk: {
-      name: 'runtime'
+      name: 'manifest'
     },
     usedExports: true,
     splitChunks: {
@@ -58,10 +56,10 @@ module.exports = {
           name: 'vendors'
         }
       }
-    },
-    performance: false,
-    output: {
-      path: path.resolve(__dirname, '../dist')
     }
+  },
+  performance: false,
+  output: {
+    path: path.resolve(__dirname, '../dist')
   }
 }
