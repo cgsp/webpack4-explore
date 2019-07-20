@@ -1,7 +1,6 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const webpack = require('webpack')
 
 module.exports = {
   entry: {
@@ -15,9 +14,6 @@ module.exports = {
         use: [
           {
             loader: 'bable-loader'
-          },
-          {
-            loader: 'import-loader?this=window'
           }
         ]
       },
@@ -46,10 +42,6 @@ module.exports = {
     }),
     new CleanWebpackPlugin(['dist'], {
       root: path.resolve(__dirname, '../')
-    }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      _join: ['lodash', 'join']
     })
   ],
   optimization: {
