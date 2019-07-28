@@ -1,3 +1,6 @@
+// import _ from 'lodash'
+import * as _ from 'lodash'
+
 class Greeter {
   greeting: string
   constructor(message: string) {
@@ -5,7 +8,9 @@ class Greeter {
   }
 
   greet() {
-    alert(this.greeting)
+    alert(_.join([this.greeting, '哈哈哈'], '---'))
+
+    // alert(_.join())
   }
 }
 
