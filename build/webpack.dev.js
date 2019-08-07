@@ -6,10 +6,14 @@ const devConfig = {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contenBase: './dist',
+    // contenBase: './dist',
     open: true,
     port: 8080,
-    hot: true
+    hot: true,
+    overlay: {
+      errors: true
+    },
+    host: '0.0.0.0'
   },
   module: {
     rules: [

@@ -50,6 +50,8 @@
     "workbox-webpack-plugin": "^4.3.1"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.4"
+    "@babel/polyfill": "^7.4.4",
+    "@types/lodash": "^4.14.136",
+    "lodash": "^4.17.15"
   }
 }
