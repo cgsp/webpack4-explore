@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    // 打包出来的文件，放在哪里
+    "outDir": "./dist",
+    // 源代码是什么模块规范
+    "module": "es6",
+    // 输出什么规范的代码
+    "target": "es5",
+    // 允许，在ts中，写js的代码
+    "allowJs": true
+  }
+}
