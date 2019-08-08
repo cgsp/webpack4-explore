@@ -13,7 +13,30 @@ const devConfig = {
     overlay: {
       errors: true
     },
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    proxy: {
+      '/api': {
+        target: 'http://open.ximalaya.com',
+        // bypass: function(req, res, proxyOptions) {
+        //   // alert('111')
+        //   if (req.headers.accept.includes('html')) {
+        //     // return {
+        //     //   code: 0,
+        //     //   message: '哈哈哈'
+        //     // }
+        //     return false
+        //   }
+        // }
+        changeOrigin: true,
+        pathRewrite: {
+          '/api': ''
+        },
+        headers: {
+          cookie: 'ssss',
+          host: '1111'
+        }
+      }
+    }
   },
   module: {
     rules: [
