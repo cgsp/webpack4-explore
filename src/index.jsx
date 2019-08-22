@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDom from 'react-dom'
 import axios from 'axios'
-import _ from 'lodash'
+// import _ from 'lodash'
 
 class App extends Component {
   componentDidMount() {
