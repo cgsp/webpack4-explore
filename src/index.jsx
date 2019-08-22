@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import ReactDom from 'react-dom'
-import axios from 'axios'
+import axios from 'axios';
 
 class App extends Component {
   componentDidMount() {
-    console.log(111)
     axios.get('/api/help/menu').then(res => {
       console.count(res)
     })
   }
 
   render() {
-    return <div>hello world</div>
+    return <div>hello world111</div>
   }
 }
 
