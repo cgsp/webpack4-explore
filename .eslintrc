@@ -13,7 +13,7 @@
     "no-fallthrough": ["error"],
     "spaced-comment": 0,
     "quotes": 0,
-    "semi": 0,
+    "semi": ["error"],
     "no-restricted-globals": 0,
     "no-unused-vars": ["error"],
     "no-multi-spaces": ["error"],
